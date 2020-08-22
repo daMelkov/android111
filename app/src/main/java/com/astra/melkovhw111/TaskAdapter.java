@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -46,11 +47,23 @@ public class TaskAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.list_tem, parent, false);
         }
 
-        TextView txtHeader = convertView.findViewById(R.id.header);
-        txtHeader.setText(getItem(position).getTitle());
+        Task task = getItem(position);
 
-        TextView txtContent = convertView.findViewById(R.id.content);
-        txtContent.setText(getItem(position).getContent());
+        /* header */
+        TextView txtHeader = convertView.findViewById(R.id.header);
+        txtHeader.setText(task.getTitle());
+
+        /* content */
+        TextView txtContent = convertView.findViewById(R.id.sub_title);
+        txtContent.setText(task.getSubTitle());
+
+        /* description */
+        TextView txtDescription = convertView.findViewById(R.id.description);
+        txtDescription.setText(task.getDescription());
+
+        /* screenshot */
+        ImageView image = convertView.findViewById(R.id.imageView);
+        image.setImageResource(task.getScreenshot());
 
         return convertView;
     }

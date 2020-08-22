@@ -17,7 +17,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         List<Task> tasks = new ArrayList<>();
-        tasks.add(new Task("MelkovHw51", "AppBar приложения", 0));
+        tasks.add(new Task (
+                "MelkovHw51",
+                "Записная книжка в SharedPreferences",
+                "Одно из самых популярных приложений на телефон - это заметки. Давайте создадим свои собственные. Элементы приложения:\n" +
+                        "\n" +
+                        "- EditText с заметкой.\n" +
+                        "- Кнопка “Сохранить” (при клике на нее, заметка сохраняется в SharedPreferences). При перезапуске приложения, если заметка ранее была сохранена, она отображается в EditText компоненте.",
+                R.drawable.hw51)
+        );
 
         BaseAdapter adapter = new TaskAdapter(MainActivity.this, tasks);
 
